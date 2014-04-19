@@ -1,0 +1,10 @@
+each resto in list
+	div#snippets
+		a.nav(href='/'+resto.id)
+			h3=resto.name
+		div#img
+			a(href="/"+resto.id)
+				img.list(src="/images/"+resto.imgurl)
+		p=resto.description.substr(0,60)
+			|...
+			a.nav(href='/'+resto.id) read more

@@ -1,0 +1,31 @@
+div#detail
+	each resto in restaurant
+		h1=resto.name
+		div#bimg
+			img.detail(src='/images/'+resto.imgurl)
+		p#des=resto.description
+		h3 Reviews 
+		each comment in resto.comments
+			div#comment
+				h4=comment.commentby
+				p#rev=comment.commenttext
+				p#date=comment.commentdate
+		br
+		h3 Add a Review
+		form#comm(action="/"+resto.id, method="post")
+			| Name:
+			br
+			input(type="text", name="user",required)
+			br
+			br
+			| E-Mail:
+			br
+			input(type="email", name="mail", placeholder="will not be published",required)
+			br	  
+			br
+			| Comment:
+			br
+			textarea(name="comment",rows="10",cols="50",required)
+			br
+			br
+			input(type="submit", value="Comment")			
